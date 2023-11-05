@@ -1,4 +1,4 @@
-# RizzGPT Okcupid Pickup Line Generator
+# RizzJS Okcupid Pickup Line Generator
 
 RizzGPT is a simple Express.js server that uses OpenAI's GPT-4 model to generate short, flirty, rizzy, and cheesy introductory messages for potential matches on OkCupid.
 
