@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RiZZGPT</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: '/api/pickupline',
+                    type: 'POST',
+                    data: new FormData(this),
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        $('#result').text(data.message);
+                    },
+                    error: function() {
+                        $('#result').text('Error generating pickup line');
+                    }
+                });
+            });
+
+            $('#regenerate').on('click', function() {
+                $('form').submit();
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <input type="file" name="image" accept="image/*">
+        <button type="submit">Generate Pickup Line</button>
+    </form>
+    <button id="regenerate">Regenerate</button>
+    <p id="result"></p>
+</body>
+</html>
